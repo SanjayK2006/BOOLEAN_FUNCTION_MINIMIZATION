@@ -35,30 +35,36 @@ Hardware – PCs, Cyclone II , USB flasher
 
 /* Program to implement the given logic function and to verify its operations in quartus using Verilog programming. 
 
-Developed by: VARSHA A
-RegisterNumber:212223220121
-## program
-## module combinationalcircuit(A,B,C,D,F1);
-## input A,B,C,D;
-## output F1;
-## wire x1,x2,x3,x4,x5;
-## assign x1=(~A)&(~B)&(~C)&(~D);
-## assign x2=(A)&(~C)&(~D);
-## assign x3=(~B)&(C)&(~D);
-## assign x4=(~A)&(B)&(C)&(D);
-## assign x5=(B)&(~C)&(D);
-## assign F1=x1|x2|x3|x4|x5;
-## endmodule 
+Developed by: Sanjay K
+RegisterNumber:212223220094
+```
+module Boolean_min(a,b,c,d,w,x,y,z,f1,f2);
+input a,b,c,d,w,x,y,z;
+output f1,f2;
+wire adash,bdash,cdash,ddash,ydash,p,q,r,s,t,u;
+not(adash,a);
+not(bdash,b);
+not(cdash,c);
+not(ddash,d);
+not(ydash,y);
+and(p,bdash,ddash);
+and(q,adash,b,d);
+and(r,a,b,cdash);
+or(f1,p,q,r);
 
+and(s,x,y);
+and(t,w,y);
+and(u,ydash,z);
+or(f2,s,t,u);
+endmodule
+```
 
 
 
 ## RTL realization
-![Screenshot 2024-03-13 160715](https://github.com/04Varsha/BOOLEAN_FUNCTION_MINIMIZATION/assets/149035374/dbd64921-6857-40ee-a21b-55fa17e9f89b)
-
+![316294107-a6b8101c-bd3c-4b64-bc4a-f4a8962ac13a](https://github.com/aaron-h-2k5/BOOLEAN_FUNCTION_MINIMIZATION/assets/144250957/9d58f73d-24b1-4c4d-89eb-f2fd33b20b9d)
 ## Truth table
-![Screenshot 2024-03-13 160947](https://github.com/04Varsha/BOOLEAN_FUNCTION_MINIMIZATION/assets/149035374/849f41b1-394f-48f4-b451-88315b927f79)
-
+![316294144-348e89c8-b4d6-4c9e-8783-541ac0829105](https://github.com/aaron-h-2k5/BOOLEAN_FUNCTION_MINIMIZATION/assets/144250957/89a5b37e-718b-44ec-806f-153c2772eca4)
 ## Timing Diagram
 ![Screenshot 2024-03-13 161036](https://github.com/04Varsha/BOOLEAN_FUNCTION_MINIMIZATION/assets/149035374/533d1307-308c-4a6d-9495-b6f289bf8479)
 
